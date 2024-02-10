@@ -20,8 +20,8 @@ export const SideBar = ({ drawerWidth }) => {
       sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
     >
       <Drawer
-        varient="permanent" // temporary
-        open
+        variant="permanent" // temporary
+        open={true}
         sx={{
           display: { xs: 'block' },
           '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
