@@ -10,11 +10,11 @@ const formData = {
 };
 
 const formValidations = {
-  displayName: [(value) => !!value || 'El nombre es requerido'],
-  email: [(value) => value.includes('@') || 'Correo electrónico inválido'],
+  displayName: [(value) => !!value, 'El nombre es requerido'],
+  email: [(value) => value.includes('@'), 'Correo electrónico inválido'],
   password: [
-    (value) =>
-      value.length >= 6 || 'La contraseña debe tener al menos 6 caracteres',
+    (value) => value.length >= 6,
+    'La contraseña debe tener al menos 6 caracteres',
   ],
 };
 
@@ -42,6 +42,7 @@ export const RegisterPage = () => {
               name="displayName"
               value={displayName}
               onChange={onInputChange}
+              required
             />
           </Grid>
 
