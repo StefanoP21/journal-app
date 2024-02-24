@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Button, Grid, Link, TextField, Typography } from '@mui/material';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 
 const formData = {
-  displayName: 'Stefano Palomino',
-  email: 'stefano@gmail.com',
-  password: '123456',
+  displayName: '',
+  email: '',
+  password: '',
 };
 
 const formValidations = {
@@ -19,14 +20,29 @@ const formValidations = {
 };
 
 export const RegisterPage = () => {
-  const { displayName, email, password, onInputChange, formState } = useForm(
-    formData,
-    formValidations
-  );
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const {
+    displayName,
+    email,
+    password,
+    onInputChange,
+    formState,
+    displayNameValid,
+    emailValid,
+    passwordValid,
+    isFormValid,
+  } = useForm(formData, formValidations);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log({ formState });
+
+    if (!isFormValid) {
+      setFormSubmitted(true);
+      return;
+    }
+
+    console.log(formState);
   };
 
   return (
@@ -42,7 +58,8 @@ export const RegisterPage = () => {
               name="displayName"
               value={displayName}
               onChange={onInputChange}
-              required
+              error={!!displayNameValid && formSubmitted}
+              helperText={formSubmitted ? displayNameValid : null}
             />
           </Grid>
 
@@ -55,6 +72,8 @@ export const RegisterPage = () => {
               name="email"
               value={email}
               onChange={onInputChange}
+              error={!!emailValid && formSubmitted}
+              helperText={formSubmitted ? emailValid : null}
             />
           </Grid>
 
@@ -67,6 +86,8 @@ export const RegisterPage = () => {
               name="password"
               value={password}
               onChange={onInputChange}
+              error={!!passwordValid && formSubmitted}
+              helperText={formSubmitted ? passwordValid : null}
             />
           </Grid>
 
