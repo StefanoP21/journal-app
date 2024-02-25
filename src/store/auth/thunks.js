@@ -2,6 +2,7 @@ import {
   loginWithEmailAndPassword,
   registerUserWithEmailAndPassword,
   signInWithGoogle,
+  signOutFirebase,
 } from '../../firebase/provider';
 import { ckeckingCredentials, login, logout } from './';
 
@@ -55,5 +56,13 @@ export const startLoginWithEmailAndPassword = ({ email, password }) => {
     if (!result.ok) return dispatch(logout(result));
 
     dispatch(login(result));
+  };
+};
+
+export const startLogout = () => {
+  return async (dispatch) => {
+    await signOutFirebase();
+
+    dispatch(logout());
   };
 };
