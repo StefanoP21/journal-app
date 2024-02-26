@@ -6,7 +6,7 @@ import {
 } from '../../firebase/provider';
 import { ckeckingCredentials, login, logout } from './';
 
-export const checkingAuthentication = (email, password) => {
+export const checkingAuthentication = () => {
   return async (dispatch) => {
     dispatch(ckeckingCredentials());
   };
