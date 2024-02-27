@@ -14,7 +14,7 @@ export const SideBarItem = ({ id, title, body, date, imageUrls = [] }) => {
   const dispatch = useDispatch();
 
   const newTitle = useMemo(() => {
-    return id.length > 10 ? id.slice(0, 10) + '...' : id;
+    return title.length > 10 ? title.slice(0, 10) + '...' : title;
   });
 
   const onActiveNote = () => {
