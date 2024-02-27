@@ -21,7 +21,7 @@ export const NothingSelectedView = () => {
       </Grid>
 
       <Grid item xs={12}>
-        <Typography color="white" variant="h5">
+        <Typography color="white" variant="h5" align="center">
           Selecciona o crea una entrada
         </Typography>
       </Grid>
