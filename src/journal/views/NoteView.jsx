@@ -7,11 +7,16 @@ import { Button, Grid, TextField, Typography } from '@mui/material';
 import { ImageGallery } from '../components';
 import { useForm } from '../../hooks/useForm';
 import { setActiveNote, startSaveNote } from '../../store/journal';
+import Swal from 'sweetalert2';
 
 export const NoteView = () => {
   const dispatch = useDispatch();
 
-  const { active: activeNote } = useSelector((state) => state.journal);
+  const {
+    active: activeNote,
+    messageSaved,
+    isSaving,
+  } = useSelector((state) => state.journal);
 
   const { title, body, date, onInputChange, formState } = useForm(activeNote);
 
@@ -23,6 +28,17 @@ export const NoteView = () => {
   useEffect(() => {
     dispatch(setActiveNote(formState));
   }, [formState]);
+
+  useEffect(() => {
+    if (messageSaved.length > 0) {
+      Swal.fire({
+        title: '¡Actualizado!',
+        text: messageSaved,
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+      });
+    }
+  }, [messageSaved]);
 
   const onSaveNote = () => {
     dispatch(startSaveNote());
@@ -44,7 +60,12 @@ export const NoteView = () => {
       </Grid>
 
       <Grid item>
-        <Button onClick={onSaveNote} color="primary" sx={{ padding: 2 }}>
+        <Button
+          onClick={onSaveNote}
+          disabled={isSaving}
+          color="primary"
+          sx={{ padding: 2 }}
+        >
           <SaveOutlined sx={{ fontSize: 30, mr: 1 }} />
           Guardar
         </Button>
