@@ -1,7 +1,7 @@
 export const fileUpload = async (file) => {
   if (!file) throw new Error('No file selected');
 
-  const cloudUrl = import.meta.env.VITE_VERCEL_CLOUDINARY_URL;
+  const cloudUrl = import.meta.env.VITE_CLOUDINARY_URL;
 
   const formData = new FormData();
   formData.append('upload_preset', 'react-journal');
