@@ -6,7 +6,11 @@ import { Button, Grid, IconButton, TextField, Typography } from '@mui/material';
 
 import { ImageGallery } from '../components';
 import { useForm } from '../../hooks/useForm';
-import { setActiveNote, startSaveNote } from '../../store/journal';
+import {
+  setActiveNote,
+  startSaveNote,
+  startUploadingFiles,
+} from '../../store/journal';
 import Swal from 'sweetalert2';
 
 export const NoteView = () => {
@@ -46,9 +50,11 @@ export const NoteView = () => {
     dispatch(startSaveNote());
   };
   const onFileInputChange = ({ target }) => {
-    if (target.files === 0) return;
+    const { files } = target;
 
-    console.log('subiendo archivos...');
+    if (files === 0) return;
+
+    dispatch(startUploadingFiles(files));
   };
 
   return (
