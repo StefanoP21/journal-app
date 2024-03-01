@@ -12,7 +12,7 @@ const googleProvider = new GoogleAuthProvider();
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(FirebaseAuth, googleProvider);
-    // const credential = GoogleAuthProvider.credentialFromResult(result);
+
     const { displayName, email, photoURL, uid } = result.user;
 
     return {
@@ -44,7 +44,7 @@ export const registerUserWithEmailAndPassword = async ({
       password
     );
     const { uid, photoURL } = result.user;
-    // TODO: Update the user's profile
+
     await updateProfile(FirebaseAuth.currentUser, { displayName });
 
     return {
