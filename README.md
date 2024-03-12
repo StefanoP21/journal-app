@@ -6,11 +6,7 @@ Aplicación web para escribir notas personales. La aplicación cuenta con un sis
 
 ## Instalación
 
-<<<<<<< HEAD
 Instala las dependencias del proyecto con:
-=======
-Primero, instala las dependencias del proyecto con:
->>>>>>> 1cbbe3036f69369211ffd4bc4658429eddeac245
 
 ```bash
 yarn add
@@ -33,7 +29,6 @@ Para ejecutar las pruebas, usa:
 ```bash
 yarn test
 ```
-<<<<<<< HEAD
 
 ## Tecnologías
 
@@ -42,5 +37,3 @@ yarn test
 - Redux
 - Material UI
 - Firebase
-=======
->>>>>>> 1cbbe3036f69369211ffd4bc4658429eddeac245
