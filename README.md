@@ -1,8 +1,40 @@
-# React + Vite
+# Journal App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Imagen de previsualización](public/journal.png)
 
-Currently, two official plugins are available:
+Aplicación web para escribir notas personales. La aplicación cuenta con un sistema de autenticación de usuario y protección de rutas. Además, cuenta con un sistema de creación, edición y eliminación de notas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
+
+Instala las dependencias del proyecto con:
+
+```bash
+yarn add
+```
+
+Luego, copia el archivo .env.template a un nuevo archivo llamado .env.local y .env.test para las variables de desarrollo y prueba respectivamente.
+
+## Ejecución
+
+Para ejecutar el proyecto en modo de desarrollo, usa:
+
+```bash
+yarn dev
+```
+
+## Pruebas
+
+Para ejecutar las pruebas, usa:
+
+```bash
+yarn test
+```
+
+## Tecnologías
+
+- React
+- React Router
+- Redux
+- JavaScript
+- Material UI
+- Firebase
