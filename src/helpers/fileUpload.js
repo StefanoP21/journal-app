@@ -1,7 +1,11 @@
+import { getEnv } from './getEnv';
+
 export const fileUpload = async (file) => {
+  const { VITE_CLOUDINARY_URL } = getEnv();
+
   if (!file) return null;
 
-  const cloudUrl = import.meta.env.VITE_CLOUDINARY_URL;
+  const cloudUrl = VITE_CLOUDINARY_URL;
 
   const formData = new FormData();
   formData.append('upload_preset', 'react-journal');
