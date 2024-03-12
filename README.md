@@ -35,6 +35,5 @@ yarn test
 - React
 - React Router
 - Redux
-- JavaScript
 - Material UI
 - Firebase
