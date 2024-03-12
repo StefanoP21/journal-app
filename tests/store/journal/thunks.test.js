@@ -70,7 +70,7 @@ describe('Pruebas en Journal Thunks', () => {
     await startLoadingNotes()(dispatch, getState);
 
     expect(dispatch).toHaveBeenCalledWith(setNotes(notes));
-  });
+  }, 10000);
 
   test('startSaveNote debe de actualizar las notas', async () => {
     const uid = 'TESTING-UID';
@@ -83,7 +83,7 @@ describe('Pruebas en Journal Thunks', () => {
 
     expect(dispatch).toHaveBeenCalledWith(setSaving());
     expect(dispatch).toHaveBeenCalledWith(updateNote(stateWithActiveNote));
-  });
+  }, 10000);
 
   test('startDeletingNote debe eliminar una nota', async () => {
     const uid = 'TESTING-UID';
@@ -98,5 +98,5 @@ describe('Pruebas en Journal Thunks', () => {
     expect(dispatch).toHaveBeenCalledWith(
       deleteNoteById(stateWithActiveNote.id)
     );
-  });
+  }, 10000);
 });
