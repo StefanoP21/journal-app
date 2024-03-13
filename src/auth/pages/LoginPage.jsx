@@ -64,6 +64,7 @@ export const LoginPage = () => {
   return (
     <AuthLayout title="Iniciar sesión">
       <form
+        aria-label="submit-form"
         onSubmit={onSubmit}
         className="animate__animated animate__fadeIn animate__faster"
       >
@@ -86,9 +87,12 @@ export const LoginPage = () => {
             <TextField
               label="Contraseña"
               type="password"
-              placeholder="********"
+              placeholder="contraseña"
               fullWidth
               name="password"
+              InputProps={{
+                'data-testid': 'password',
+              }}
               value={password}
               onChange={onInputChange}
               error={!!passwordValid && formSubmitted}
@@ -114,6 +118,7 @@ export const LoginPage = () => {
 
             <Grid item xs={12} sm={6}>
               <Button
+                aria-label="google-btn"
                 disabled={isAuthenticating}
                 variant="contained"
                 fullWidth
