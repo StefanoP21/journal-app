@@ -32,7 +32,7 @@ git clone https://github.com/StefanoP21/journal-app.git
 ```bash
 npm install
 #or
-yarn add
+yarn 
 ```
 
 ## Variables de entorno
